@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardLayout="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rv_cardLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingEnd="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLayout"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        cardLayout:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:layout_gravity="left"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp">
+
+            <ImageView
+                android:id="@+id/imagenProducto1"
+                android:layout_width="97dp"
+                android:layout_height="80dp"
+                tools:ignore="ImageContrastCheck"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/nombreProducto1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                tools:text="@tools:sample/lorem[3]" />
+
+            <TextView
+                android:id="@+id/descripcionProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@tools:sample/lorem[4]" />
+
+            <RatingBar
+                android:id="@+id/calificacionProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:isIndicator="true"
+                android:saveEnabled="false" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
