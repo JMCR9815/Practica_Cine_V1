@@ -5,20 +5,20 @@
     android:id="@+id/rv_dashBoard_cardLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="20dp"
+    android:layout_marginLeft="10dp"
     android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLayout_dash1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="320dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:paddingLeft="25dp"
         cardLayout_dash:cardCornerRadius="10dp">
 
         <LinearLayout
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:orientation="vertical"
@@ -26,16 +26,18 @@
 
             <ImageView
                 android:id="@+id/imagenProducto1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="175dp"
+                android:layout_height="250dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
                 tools:ignore="ImageContrastCheck"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@mipmap/img_pelicula_uno" />
 
             <LinearLayout
                 android:id="@+id/vistaTextos1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:paddingStart="10dp">
 
@@ -57,14 +59,14 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardLayout_dash2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:paddingLeft="25dp"
         cardLayout_dash:cardCornerRadius="10dp">
 
         <LinearLayout
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:orientation="vertical"
@@ -72,16 +74,17 @@
 
             <ImageView
                 android:id="@+id/imagenProducto2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="175dp"
+                android:layout_height="250dp"
+                android:scaleType="fitStart"
                 tools:ignore="ImageContrastCheck"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@mipmap/img_pelicula_uno" />
 
             <LinearLayout
                 android:id="@+id/vistaTextos2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:paddingStart="7dp">
 

@@ -21,7 +21,7 @@ public class ReciclerViewAdapterDashBoard extends RecyclerView.Adapter<ReciclerV
 
     private final List<Productos> myData;
     private final LayoutInflater myInflater;
-    private static ItemClickListener myClickListener;
+    static ItemClickListener myClickListener;
 
 
     public ReciclerViewAdapterDashBoard(Context context, List<Productos> myData) {
@@ -53,8 +53,8 @@ public class ReciclerViewAdapterDashBoard extends RecyclerView.Adapter<ReciclerV
         Productos producto = myData.get(position);
         String nombreProducto = producto.getNombre();
         String descripcionProducto = producto.getDescripcion();
-        holder.imagen.setImageResource(R.mipmap.productos_ejemplo_foreground);
-        holder.imagen2.setImageResource(R.mipmap.productos_ejemplo_foreground);
+        holder.imagen.setImageResource(R.mipmap.pelicula_uno_imagen_foreground);
+        holder.imagen2.setImageResource(R.mipmap.pelicula_uno_imagen_foreground);
         return producto;
     }
 

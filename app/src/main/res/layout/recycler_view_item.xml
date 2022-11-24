@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="216dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:orientation="vertical"
             android:paddingLeft="10dp"
@@ -25,8 +25,9 @@
 
             <ImageView
                 android:id="@+id/imagenProducto1"
-                android:layout_width="97dp"
-                android:layout_height="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="118dp"
+                android:scaleType="fitStart"
                 tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/avatars" />
 
@@ -46,7 +47,7 @@
             <RatingBar
                 android:id="@+id/calificacionProducto"
                 android:layout_width="wrap_content"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:isIndicator="true"
                 android:saveEnabled="false" />
 

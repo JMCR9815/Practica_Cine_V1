@@ -58,7 +58,7 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
     @NonNull
     private Productos getString(@NonNull ViewHolder holder, int position) {
         Productos producto = myData.get(position);
-        holder.imagen.setImageResource(R.mipmap.productos_ejemplo_foreground);
+        holder.imagen.setImageResource(R.mipmap.img_pelicula_uno);
         return producto;
     }
 

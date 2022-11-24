@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="384dp"
-        android:layout_height="640dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:paddingStart="10dp"
         android:paddingTop="15dp"
@@ -20,9 +20,10 @@
         <androidx.recyclerview.widget.RecyclerView
 
             android:id="@+id/rv_activity_Dash"
-            android:layout_width="353dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:focusable="auto"
             tools:itemCount="1"
             tools:listitem="@layout/recycler_view_item_dashboard" />
 
