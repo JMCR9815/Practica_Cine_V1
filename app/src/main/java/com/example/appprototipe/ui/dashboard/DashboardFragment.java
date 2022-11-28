@@ -32,14 +32,11 @@ public class DashboardFragment extends Fragment implements ReciclerViewAdapterDa
         final RecyclerView recyclerView = binding.rvActivityDash;
         recyclerView.setHasFixedSize(true);
         productosDashBoard = new ArrayList<>();
-        productosDashBoard.add(new Productos("Producto 1", "Descripcion 1", 5));
-        productosDashBoard.add(new Productos("Producto 2", "Descripcion 2", 0));
-        productosDashBoard.add(new Productos("Producto 3", "Descripcion 3", 2));
-        productosDashBoard.add(new Productos("Producto 4", "Descripcion 4", 4));
-        productosDashBoard.add(new Productos("Producto 5", "Descripcion 5", 0));
-        productosDashBoard.add(new Productos("Producto 6", "Descripcion 6", 1));
-        productosDashBoard.add(new Productos("Producto 7", "Descripcion 7", 3));
-        productosDashBoard.add(new Productos("Producto 8", "Descripcion 8", 5));
+        productosDashBoard.add(new Productos("Les Invasiones Barbares", "16:00", 5));
+        productosDashBoard.add(new Productos("Happy go Lucky", "18:30", 0));
+        productosDashBoard.add(new Productos("Joyeux Noel", "17:20", 2));
+        productosDashBoard.add(new Productos("Central do Brasil", "18:00", 4));
+        productosDashBoard.add(new Productos("Ex Machina", "20:00", 0));
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(binding.rvActivityDash.getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);

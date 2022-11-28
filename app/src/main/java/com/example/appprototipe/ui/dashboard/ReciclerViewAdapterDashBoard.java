@@ -40,7 +40,7 @@ public class ReciclerViewAdapterDashBoard extends RecyclerView.Adapter<ReciclerV
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         String nombreProducto = getString(holder, position).getNombre();
-        String dscripcionProducto = getString(holder, position).getDescripcion();
+        String dscripcionProducto = getString(holder, position).getSesion();
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(myInflater.getContext(), R.anim.fade_transition));
         holder.myTextView.setText(nombreProducto);
         holder.myTextView2.setText(nombreProducto);
@@ -52,9 +52,29 @@ public class ReciclerViewAdapterDashBoard extends RecyclerView.Adapter<ReciclerV
     private Productos getString(@NonNull ViewHolder holder, int position) {
         Productos producto = myData.get(position);
         String nombreProducto = producto.getNombre();
-        String descripcionProducto = producto.getDescripcion();
-        holder.imagen.setImageResource(R.mipmap.pelicula_uno_imagen_foreground);
-        holder.imagen2.setImageResource(R.mipmap.pelicula_uno_imagen_foreground);
+        String descripcionProducto = producto.getSesion();
+        switch (position) {
+            case 0: {
+                holder.imagen.setImageResource(R.mipmap.img_pelicula_uno);
+                break;
+            }
+            case 1: {
+                holder.imagen.setImageResource(R.mipmap.img_pelicula_dos);
+                break;
+            }
+            case 2: {
+                holder.imagen.setImageResource(R.mipmap.img_pelicula_tres);
+                break;
+            }
+            case 3: {
+                holder.imagen.setImageResource(R.mipmap.img_pelicula_cuatro);
+                break;
+            }
+            case 4: {
+                holder.imagen.setImageResource(R.mipmap.img_pelicula_cinco);
+                break;
+            }
+        }
         return producto;
     }
 

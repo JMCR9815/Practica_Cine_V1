@@ -4,18 +4,18 @@ import androidx.annotation.NonNull;
 
 public class Productos {
     private String nombre;
-    private String descripcion;
+    private String sesion;
     private int calificacion;
 
-    public Productos(String nombre, String descripcion, int calificacion) {
+    public Productos(String nombre, String sesion, int calificacion) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.sesion = sesion;
         this.calificacion = calificacion;
     }
 
     public Productos(String nombre, String descripcion) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.sesion = descripcion;
     }
 
 
@@ -27,12 +27,12 @@ public class Productos {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getSesion() {
+        return sesion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setSesion(String sesion) {
+        this.sesion = sesion;
     }
 
     public int getCalificacion() {
@@ -53,13 +53,13 @@ public class Productos {
         if (getCalificacion() != productos.getCalificacion()) return false;
         if (getNombre() != null ? !getNombre().equals(productos.getNombre()) : productos.getNombre() != null)
             return false;
-        return getDescripcion() != null ? getDescripcion().equals(productos.getDescripcion()) : productos.getDescripcion() == null;
+        return getSesion() != null ? getSesion().equals(productos.getSesion()) : productos.getSesion() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getNombre() != null ? getNombre().hashCode() : 0;
-        result = 31 * result + (getDescripcion() != null ? getDescripcion().hashCode() : 0);
+        result = 31 * result + (getSesion() != null ? getSesion().hashCode() : 0);
         result = 31 * result + getCalificacion();
         return result;
     }
@@ -67,6 +67,6 @@ public class Productos {
     @NonNull
     @Override
     public String toString() {
-        return "Productos{" + "nombre='" + nombre + '\'' + ", descripcion='" + descripcion + '\'' + ", calificacion=" + calificacion + '}';
+        return "Productos{" + "nombre='" + nombre + '\'' + ", descripcion='" + sesion + '\'' + ", calificacion=" + calificacion + '}';
     }
 }

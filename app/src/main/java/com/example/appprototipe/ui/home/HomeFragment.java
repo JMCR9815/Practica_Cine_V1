@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.appprototipe.ui.articulos.Productos;
 import com.example.appprototipe.R;
 import com.example.appprototipe.databinding.FragmentHomeBinding;
+import com.example.appprototipe.ui.articulos.Productos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +48,11 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
     }
 
     private void addItems(List<Productos> listaProductos) {
-        listaProductos.add(new Productos("Producto 1", "Descripcion 1", 5));
-        listaProductos.add(new Productos("Producto 2", "Descripcion 2", 0));
-        listaProductos.add(new Productos("Producto 3", "Descripcion 3", 2));
-        listaProductos.add(new Productos("Producto 4", "Descripcion 4", 4));
-        listaProductos.add(new Productos("Producto 5", "Descripcion 5", 0));
-        listaProductos.add(new Productos("Producto 6", "Descripcion 6", 1));
-        listaProductos.add(new Productos("Producto 7", "Descripcion 7", 3));
-        listaProductos.add(new Productos("Producto 8", "Descripcion 8", 5));
+        listaProductos.add(new Productos("Les Invasiones Barbares", "16:00", 5));
+        listaProductos.add(new Productos("Happy go Lucky", "18:30", 0));
+        listaProductos.add(new Productos("Joyeux Noel", "17:20", 2));
+        listaProductos.add(new Productos("Central do Brasil", "18:00", 4));
+        listaProductos.add(new Productos("Ex Machina", "20:00", 0));
     }
 
     @SuppressLint("SetTextI18n")
@@ -65,35 +62,33 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
 
         switch (position) {
             case 0:
-            case 7:
                 binding.scrollView2.setVisibility(View.VISIBLE);
                 binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
-                binding.textDescription.setText(R.string.descripcionProducto);
+                binding.textDescription.setText(R.string.descripcionPelicula01);
                 break;
-
             case 1:
-            case 8:
                 binding.scrollView2.setVisibility(View.VISIBLE);
                 binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
-                binding.textDescription.setText(R.string.descripcionProducto02);
-
+                binding.textDescription.setText(R.string.descripcionPelicula02);
                 break;
-
             case 2:
-            case 6:
                 binding.scrollView2.setVisibility(View.VISIBLE);
                 binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
-                binding.textDescription.setText(R.string.descripcionProducto03);
-
+                binding.textDescription.setText(R.string.descripcionPelicula03);
                 break;
 
             case 3:
-            case 4:
-            case 5:
                 binding.scrollView2.setVisibility(View.VISIBLE);
                 binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
-                binding.textDescription.setText(R.string.descripcionProducto04);
+                binding.textDescription.setText(R.string.descripcionPelicula04);
                 break;
+            case 4:
+                binding.scrollView2.setVisibility(View.VISIBLE);
+                binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
+                binding.textDescription.setText(R.string.descripcionPelciula05);
+                break;
+
+
             default:
                 throw new IllegalStateException("Unexpected value: " + position);
         }
