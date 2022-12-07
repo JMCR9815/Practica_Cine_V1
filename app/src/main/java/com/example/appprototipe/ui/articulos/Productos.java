@@ -1,16 +1,22 @@
 package com.example.appprototipe.ui.articulos;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 
 public class Productos {
+
     private String nombre;
     private String sesion;
     private int calificacion;
+    private ImageView imagen;
 
-    public Productos(String nombre, String sesion, int calificacion) {
+    public Productos(String nombre, String sesion, int calificacion, int srcImagen) {
         this.nombre = nombre;
         this.sesion = sesion;
         this.calificacion = calificacion;
+        this.imagen.setImageResource(srcImagen);
     }
 
     public Productos(String nombre, String descripcion) {

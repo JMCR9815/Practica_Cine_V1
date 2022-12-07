@@ -83,9 +83,15 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
         return producto;
     }
 
+
     @Override
     public int getItemCount() {
         return myData.size();
+    }
+
+    public Productos getProductById(int itemId) {
+        Productos producto = myData.get(itemId);
+        return producto;
     }
 
 

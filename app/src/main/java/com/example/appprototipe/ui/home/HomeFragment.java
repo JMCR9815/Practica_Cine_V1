@@ -1,6 +1,8 @@
 package com.example.appprototipe.ui.home;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemClickListener {
+    int idItem;
+
 
     private FragmentHomeBinding binding;
     ReciclerViewAdapter adapter;
@@ -44,15 +48,16 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
         AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition);
         binding.scrollView2.setAnimation(AnimationUtils.loadAnimation(binding.rvActivityMain.getContext(), R.anim.fade_transition));
 
+
         return root;
     }
 
     private void addItems(List<Productos> listaProductos) {
-        listaProductos.add(new Productos("Les Invasiones Barbares", "16:00", 5));
-        listaProductos.add(new Productos("Happy go Lucky", "18:30", 0));
-        listaProductos.add(new Productos("Joyeux Noel", "17:20", 2));
-        listaProductos.add(new Productos("Central do Brasil", "18:00", 4));
-        listaProductos.add(new Productos("Ex Machina", "20:00", 0));
+        listaProductos.add(new Productos("Les Invasiones Barbares", "16:00", 5, R.mipmap.img_pelicula_uno));
+        listaProductos.add(new Productos("Happy go Lucky", "18:30", 0, R.mipmap.img_pelicula_dos));
+        listaProductos.add(new Productos("Joyeux Noel", "17:20", 2, R.mipmap.img_pelicula_tres));
+        listaProductos.add(new Productos("Central do Brasil", "18:00", 4, R.mipmap.img_pelicula_cuatro));
+        listaProductos.add(new Productos("Ex Machina", "20:00", 0, R.mipmap.img_pelicula_cinco));
     }
 
     @SuppressLint("SetTextI18n")
@@ -96,14 +101,24 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
 
     @Override
     public void OnLongItemClick(View activista, int position) {
+        // 0 - for private mode
+        SharedPreferences pref = requireContext().getSharedPreferences("MyPref", 0);
+        Editor editor = pref.edit();
+        Productos producto = adapter.getProductById((int) adapter.getItemId(position));
+
+        editor.putInt("IdItem", position);
+        editor.commit();
         Toast.makeText(binding.rvActivityMain.getContext(), "Has pulsado largo  en: " + adapter.getItemId(position) + "el elemento largo : " + position, Toast.LENGTH_SHORT).show();
+
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public int getIdItem() {
+        return idItem;
+    }
+
+    public void setIdItem(int idItem) {
+        this.idItem = idItem;
     }
 
 
