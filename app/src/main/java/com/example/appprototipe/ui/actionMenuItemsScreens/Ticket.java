@@ -1,25 +1,18 @@
 package com.example.appprototipe.ui.actionMenuItemsScreens;
 
-import com.example.appprototipe.ui.articulos.Productos;
+import java.io.Serializable;
 
-public class Ticket {
-    private Productos pelicula;
+public class Ticket implements Serializable {
+    private String nombrePelicula;
     private int numeroEntradas;
     private int numeroFila;
 
-    public Ticket(Productos pelicula, int numeroEntradas, int numeroFila) {
-        this.pelicula = pelicula;
+    public Ticket(String nombrePelicula, int numeroEntradas, int numeroFila) {
+        this.nombrePelicula = nombrePelicula;
         this.numeroEntradas = numeroEntradas;
         this.numeroFila = numeroFila;
     }
 
-    public Productos getPelicula() {
-        return pelicula;
-    }
-
-    public void setPelicula(Productos pelicula) {
-        this.pelicula = pelicula;
-    }
 
     public int getNumeroEntradas() {
         return numeroEntradas;
@@ -35,5 +28,18 @@ public class Ticket {
 
     public void setNumeroFila(int numeroFila) {
         this.numeroFila = numeroFila;
+    }
+
+    public String getNombrePelicula() {
+        return nombrePelicula;
+    }
+
+    public void setNombrePelicula(String nombrePelicula) {
+        this.nombrePelicula = nombrePelicula;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" + "nombrePelicula='" + nombrePelicula + '\'' + ", numeroEntradas=" + numeroEntradas + ", numeroFila=" + numeroFila + '}';
     }
 }

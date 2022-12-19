@@ -5,18 +5,20 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
-public class Productos {
+import java.io.Serializable;
+
+public class Productos implements Serializable {
 
     private String nombre;
     private String sesion;
     private int calificacion;
-    private ImageView imagen;
 
-    public Productos(String nombre, String sesion, int calificacion, int srcImagen) {
+
+    public Productos(String nombre, String sesion, int calificacion) {
         this.nombre = nombre;
         this.sesion = sesion;
         this.calificacion = calificacion;
-        this.imagen.setImageResource(srcImagen);
+        ;
     }
 
     public Productos(String nombre, String descripcion) {

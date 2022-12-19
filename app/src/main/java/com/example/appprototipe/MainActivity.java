@@ -26,6 +26,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.appprototipe.databinding.ActivityMainBinding;
 import com.example.appprototipe.ui.actionMenuItemsScreens.buyTicketActivity;
+import com.example.appprototipe.ui.articulos.Productos;
 import com.example.appprototipe.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -66,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case action_comprarEntradas:
                 Intent intentoCompra = new Intent(MainActivity.this, buyTicketActivity.class);
+                Productos producto = new Productos(pref.getString("objetoNombre", ""), pref.getString("objetoSesion", ""), pref.getInt("objetoCalificacion", 0));
+                Toast.makeText(this, producto.toString(), Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("pelicula", producto);
+                intentoCompra.putExtras(bundle);
                 startActivity(intentoCompra);
                 break;
             case action_compartir:

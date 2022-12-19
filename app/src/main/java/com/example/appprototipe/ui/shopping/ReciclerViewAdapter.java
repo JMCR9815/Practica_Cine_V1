@@ -1,5 +1,4 @@
-package com.example.appprototipe.ui.home;
-
+package com.example.appprototipe.ui.shopping;
 
 
 import android.content.Context;
@@ -8,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,18 +14,18 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appprototipe.R;
-import com.example.appprototipe.ui.articulos.Productos;
+import com.example.appprototipe.ui.actionMenuItemsScreens.Ticket;
 
 import java.util.List;
 
 public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapter.ViewHolder> {
 
-    private final List<Productos> myData;
+    private final List<Ticket> myData;
     private final LayoutInflater myInflater;
     private static ItemClickListener myClickListener;
 
 
-    public ReciclerViewAdapter(Context context, List<Productos> myData) {
+    public ReciclerViewAdapter(Context context, List<Ticket> myData) {
         this.myData = myData;
         this.myInflater = LayoutInflater.from(context);
     }
@@ -42,23 +40,22 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        String nombreProducto = "Titulo: "+ getString(holder, position).getNombre();
-        String descripcionProducto ="Sesion: "+ getString(holder, position).getSesion();
-        int calificacionProducto = getString(holder, position).getCalificacion();
+        String nombreProducto = "Titulo: " + getString(holder, position).getNombrePelicula().toString();
+        String numeroEntradas = "Entradas: " + getString(holder, position).getNumeroEntradas();
+        String numeroFila = "Fila: " + getString(holder, position).getNumeroFila();
         holder.cardView.setAnimation(AnimationUtils.loadAnimation(myInflater.getContext(), R.anim.fade_transition));
 
-        holder.myTextView.setText(nombreProducto);
-        holder.descripcionProducto.setText(descripcionProducto);
-        holder.calificacionProducto.setNumStars(5);
-        holder.calificacionProducto.setRating(calificacionProducto);
+        holder.tituloPelicula.setText("fewwfw");
+
 
     }
 
 
     @NonNull
-    private Productos getString(@NonNull ViewHolder holder, int position) {
-        Productos producto = myData.get(position);
-        switch (position) {
+    private Ticket getString(@NonNull ViewHolder holder, int position) {
+        Ticket ticket = myData.get(position);
+        String peliculaTitulo = ticket.getNombrePelicula();
+        /*switch (position) {
             case 0: {
                 holder.imagen.setImageResource(R.mipmap.img_pelicula_uno);
                 break;
@@ -79,8 +76,8 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
                 holder.imagen.setImageResource(R.mipmap.img_pelicula_cinco);
                 break;
             }
-        }
-        return producto;
+        }*/
+        return ticket;
     }
 
 
@@ -89,27 +86,25 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
         return myData.size();
     }
 
-    public Productos getProductById(int itemId) {
-        Productos producto = myData.get(itemId);
-        return producto;
+    public Ticket getProductById(int itemId) {
+        Ticket ticket = myData.get(itemId);
+        return ticket;
     }
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         final ImageView imagen;
+        final TextView tituloPelicula;
         final TextView myTextView;
-        final TextView descripcionProducto;
-        final RatingBar calificacionProducto;
         final TextView textDescription;
         final CardView cardView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            imagen = itemView.findViewById(R.id.imagenProducto1);
-            myTextView = itemView.findViewById(R.id.nombreProducto1);
-            descripcionProducto = itemView.findViewById(R.id.descripcionProducto);
-            calificacionProducto = itemView.findViewById(R.id.calificacionProducto);
-            textDescription = itemView.findViewById(R.id.textDescription);
+            imagen = itemView.findViewById(R.id.imagen_ticket);
+            tituloPelicula = itemView.findViewById(R.id.tticket_titulo_pelicula);
+            myTextView = itemView.findViewById(R.id.ticket_entradas);
+            textDescription = itemView.findViewById(R.id.ticket_fila);
             cardView = itemView.findViewById(R.id.cardLayout);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
@@ -131,11 +126,11 @@ public class ReciclerViewAdapter extends RecyclerView.Adapter<ReciclerViewAdapte
 
     }
 
-    void setClickListener(HomeFragment itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         myClickListener = itemClickListener;
     }
 
-    void setLongClickListener(HomeFragment itemClickListener) {
+    void setLongClickListener(ItemClickListener itemClickListener) {
         myClickListener = itemClickListener;
     }
 

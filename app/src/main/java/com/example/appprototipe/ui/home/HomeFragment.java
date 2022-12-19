@@ -53,11 +53,11 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
     }
 
     private void addItems(List<Productos> listaProductos) {
-        listaProductos.add(new Productos("Les Invasiones Barbares", "16:00", 5, R.mipmap.img_pelicula_uno));
-        listaProductos.add(new Productos("Happy go Lucky", "18:30", 0, R.mipmap.img_pelicula_dos));
-        listaProductos.add(new Productos("Joyeux Noel", "17:20", 2, R.mipmap.img_pelicula_tres));
-        listaProductos.add(new Productos("Central do Brasil", "18:00", 4, R.mipmap.img_pelicula_cuatro));
-        listaProductos.add(new Productos("Ex Machina", "20:00", 0, R.mipmap.img_pelicula_cinco));
+        listaProductos.add(new Productos("Les Invasiones Barbares", "16:00", 5));
+        listaProductos.add(new Productos("Happy go Lucky", "18:30", 0));
+        listaProductos.add(new Productos("Joyeux Noel", "17:20", 2));
+        listaProductos.add(new Productos("Central do Brasil", "18:00", 4));
+        listaProductos.add(new Productos("Ex Machina", "20:00", 0));
     }
 
     @SuppressLint("SetTextI18n")
@@ -104,10 +104,14 @@ public class HomeFragment extends Fragment implements ReciclerViewAdapter.ItemCl
         // 0 - for private mode
         SharedPreferences pref = requireContext().getSharedPreferences("MyPref", 0);
         Editor editor = pref.edit();
-        Productos producto = adapter.getProductById((int) adapter.getItemId(position));
-
+        Productos producto = adapter.getProductById(position);
+        Toast.makeText(binding.rvActivityMain.getContext(), producto.toString(), Toast.LENGTH_SHORT).show();
         editor.putInt("IdItem", position);
+        editor.putString("objetoNombre", producto.getNombre());
+        editor.putString("objetoSesion", producto.getSesion());
+        editor.putInt("objetoCalificacion", producto.getCalificacion());
         editor.commit();
+
         Toast.makeText(binding.rvActivityMain.getContext(), "Has pulsado largo  en: " + adapter.getItemId(position) + "el elemento largo : " + position, Toast.LENGTH_SHORT).show();
 
 
